@@ -1,0 +1,137 @@
+$maincolor: #503396;
+
+.wrap {
+    width: 100%;
+
+    .article {
+        padding: 60px 0;
+        width: 100%;
+        background-image: url(../../../public/images/bg-movie-detail-pattern.png);
+
+        h2 {
+            font-size: 30px;
+            text-align: center;
+        }
+
+        >input {
+            display: block;
+            margin: 40px auto;
+            border: 2px solid $maincolor;
+            width: 500px;
+            height: 30px;
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        .BoxOffice {
+            width: 1100px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            line-height: 30px;
+            margin: auto;
+
+            .BoxOffice-item {
+                margin-right: 40px;
+                margin-bottom: 40px;
+                width: 245px;
+                position: relative;
+
+                &:hover .BoxOffice-info {
+                    display: block;
+                }
+
+                .BoxOffice-img {
+                    width: 245px;
+                }
+
+                &:nth-child(4n) {
+                    margin-right: 0;
+                }
+
+                .BoxOffice-name {
+                    width: 200px;
+                    white-space: nowrap;
+
+                    img {
+                        width: 20px;
+                        vertical-align: middle;
+                    }
+
+                    span {
+                        display: inline-block;
+                        max-width: 100%;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        margin-left: 10px;
+                        font-size: 20px;
+                        font-weight: 600;
+                        vertical-align: middle;
+                    }
+                }
+
+                .BoxOffice-info {
+                    display: none;
+                    background: rgba(0, 0, 0, 0.6);
+                    position: absolute;
+                    top: 0;
+                    height: 142px;
+                    overflow: hidden;
+                    font-size: 15px;
+                    padding: 20px;
+                    color: white;
+                    height: 350px;
+                    box-sizing: border-box;
+
+                    span {
+                        max-width: 100%;
+                        text-overflow: ellipsis;
+
+                        &:nth-child(1) {
+                            display: block;
+                            margin-bottom: 22px;
+                        }
+                    }
+
+                }
+
+                .BoxOffice-per_date {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+
+                    strong {
+                        font-weight: 600;
+                    }
+
+                }
+
+                .like {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+
+                    button {
+                        cursor: pointer;
+                        background: none;
+                        height: 40px;
+                        width: 120px;
+                        font-size: 18px;
+                        line-height: 40px;
+                        border: 2px solid $maincolor;
+                        box-sizing: border-box;
+
+                        &:nth-child(2) {
+                            background: $maincolor;
+                            color: white;
+                            border: none;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+}

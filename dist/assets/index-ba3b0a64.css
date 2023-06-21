@@ -1,0 +1,278 @@
+@import"https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap";
+
+.wrap {
+    width: 100%
+}
+
+.wrap .article {
+    padding: 60px 0;
+    width: 100%;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQyIDc5LjE2MDkyNCwgMjAxNy8wNy8xMy0wMTowNjozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NTk5ODc5MUNDQTA2MTFFOTlDNUFDMUNCNzg3RUFEQjAiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NTk5ODc5MUJDQTA2MTFFOTlDNUFDMUNCNzg3RUFEQjAiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTggKFdpbmRvd3MpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RDMyQzlEMTQxNTYwMTFFOUE3NUU4NjU3ODZFNkEwODciIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RDMyQzlEMTUxNTYwMTFFOUE3NUU4NjU3ODZFNkEwODciLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5CYywyAAAAFUlEQVR42mJiYGCIYfj//z8DQIABAAs9A1zi/B0EAAAAAElFTkSuQmCC)
+}
+
+.wrap .article h2 {
+    font-size: 30px;
+    text-align: center
+}
+
+.wrap .article>input {
+    display: block;
+    margin: 40px auto;
+    border: 2px solid #503396;
+    width: 500px;
+    height: 30px
+}
+
+.wrap .article>input:focus {
+    outline: none
+}
+
+.wrap .article .BoxOffice {
+    width: 1100px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    line-height: 30px;
+    margin: auto
+}
+
+.wrap .article .BoxOffice .BoxOffice-item {
+    margin-right: 40px;
+    margin-bottom: 40px;
+    width: 245px;
+    position: relative
+}
+
+.wrap .article .BoxOffice .BoxOffice-item:hover .BoxOffice-info {
+    display: block
+}
+
+.wrap .article .BoxOffice .BoxOffice-item .BoxOffice-img {
+    width: 245px
+}
+
+.wrap .article .BoxOffice .BoxOffice-item:nth-child(4n) {
+    margin-right: 0
+}
+
+.wrap .article .BoxOffice .BoxOffice-item .BoxOffice-name {
+    width: 200px;
+    white-space: nowrap
+}
+
+.wrap .article .BoxOffice .BoxOffice-item .BoxOffice-name img {
+    width: 20px;
+    vertical-align: middle
+}
+
+.wrap .article .BoxOffice .BoxOffice-item .BoxOffice-name span {
+    display: inline-block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    vertical-align: middle
+}
+
+.wrap .article .BoxOffice .BoxOffice-item .BoxOffice-info {
+    display: none;
+    background: rgba(0, 0, 0, .6);
+    position: absolute;
+    top: 0;
+    height: 142px;
+    overflow: hidden;
+    font-size: 15px;
+    padding: 20px;
+    color: #fff;
+    height: 350px;
+    box-sizing: border-box
+}
+
+.wrap .article .BoxOffice .BoxOffice-item .BoxOffice-info span {
+    max-width: 100%;
+    text-overflow: ellipsis
+}
+
+.wrap .article .BoxOffice .BoxOffice-item .BoxOffice-info span:nth-child(1) {
+    display: block;
+    margin-bottom: 22px
+}
+
+.wrap .article .BoxOffice .BoxOffice-item .BoxOffice-per_date {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between
+}
+
+.wrap .article .BoxOffice .BoxOffice-item .BoxOffice-per_date strong {
+    font-weight: 600
+}
+
+.wrap .article .BoxOffice .BoxOffice-item .like {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between
+}
+
+.wrap .article .BoxOffice .BoxOffice-item .like button {
+    cursor: pointer;
+    background: none;
+    height: 40px;
+    width: 120px;
+    font-size: 18px;
+    line-height: 40px;
+    border: 2px solid #503396;
+    box-sizing: border-box
+}
+
+.wrap .article .BoxOffice .BoxOffice-item .like button:nth-child(2) {
+    background: #503396;
+    color: #fff;
+    border: none
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block
+}
+
+body {
+    line-height: 1.6;
+    font-size: 15px;
+    font-family: Noto Sans KR, sans-serif
+}
+
+a {
+    line-height: 1.6;
+    font-size: 15px;
+    text-decoration: none;
+    color: #333
+}
+
+ol,
+ul,
+li {
+    list-style: none
+}
+
+blockquote,
+q {
+    quotes: none
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: "";
+    content: none
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+img {
+    vertical-align: top
+}
