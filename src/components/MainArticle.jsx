@@ -13,17 +13,19 @@ const MainArticle = () => {
     const bgRef = useRef(null);
     const articleRef = useRef(null);
     const [articleHeight, setArticleHeight] = useState(0);
+    const [isOpen, setIsOpen] = useState(false);
+    const [selectedMovieIndex, setSelectedMovieIndex] = useState()
     useEffect(() => {
         const articleElement = articleRef.current;
         if (articleElement) {
             const { height } = articleElement.getBoundingClientRect();
+            console.log("Article Height:", height);
             setArticleHeight(height);
         }
-    }, []);
+    }, [filteredMovieData]);
     const bgStyle = {
         height: articleHeight
     };
-    console.log(articleHeight);
     useEffect(() => {
         const url = `https://gist.githubusercontent.com/audrhks29/8d111972680ab3319c173096829c7504/raw/b7fb9dcbe3ddb9754bba0980707253c809180823/movie.json`
         axios.get(url)
@@ -78,6 +80,12 @@ const MainArticle = () => {
             return value;
         }
     }
+    const popUpOpen = (index) => {
+        setIsOpen(true)
+        console.log(isOpen);
+        setSelectedMovieIndex(index)
+        console.log(selectedMovieIndex);
+    }
     return (
         <>
             <div className="bg" ref={bgRef} style={{ ...bgStyle, width: "100%" }}></div>
@@ -101,9 +109,9 @@ const MainArticle = () => {
                                     </div>
                                     <div className="BoxOffice-name">
                                         <img src={agelimit} alt="" />
-                                        <span>{movieNm}</span>
+                                        <span >{movieNm}</span>
                                     </div>
-                                    <div className="BoxOffice-info">
+                                    <div className="BoxOffice-info" onClick={() => popUpOpen(index)}>
                                         <span>{infoTitle}</span>
                                         {
                                             info && info.split('\n').map((splitItem, index) => {
@@ -124,6 +132,41 @@ const MainArticle = () => {
                         })
                     }
                 </div>
+                {
+                    isOpen && <div className='popUp'>
+                        <div className="popUpInner">
+                            <div className='popUpbg' style={{
+                                background: `url(${filteredMovieData[selectedMovieIndex].imageURL})`,
+                                width: 1000,
+                                height: 742,
+                                filter: 'blur(10px)',
+                                backgroundSize: 'cover',
+                                borderRadius: 50
+                            }}></div>
+                            <div className='popUpContent'>
+                                <div className='popUpLeft'>
+                                    <div className='popUpLeft_top'>
+                                        <h3>{filteredMovieData[selectedMovieIndex].movieNm}</h3>
+                                        <strong>{filteredMovieData[selectedMovieIndex].infoTitle}</strong>
+                                        {/* <span>{filteredMovieData[selectedMovieIndex].info}</span> */}
+                                        {
+                                            filteredMovieData[selectedMovieIndex].info && filteredMovieData[selectedMovieIndex].info.split('\n').map((splitItem, index) => {
+                                                return <span key={index}>{splitItem}</span>
+                                            })
+                                        }
+                                    </div>
+                                    <div className='popUpLeft_bottom'>
+                                        <span>개봉일{filteredMovieData[selectedMovieIndex].openDt}</span>
+                                        <span>누적관객수{filteredMovieData[selectedMovieIndex].audiAcc}</span>
+                                    </div>
+                                </div>
+                                <div className='popUpRight'>
+                                    <img src={filteredMovieData[selectedMovieIndex].imageURL} style={{ width: 245, height: 350 }} alt="" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
             </div >
         </>
     );
