@@ -2,14 +2,25 @@ $maincolor: #503396;
 
 .wrap {
     width: 100%;
+    position: relative;
+
+    .bg {
+        background-image: url(../../../public/images/b05fec37909f3c46d8ada73ba1d2bc2f8868e869.jpg);
+        filter: blur(15px);
+        -webkit-filter: blur(15px);
+        transform: scale(1.02);
+    }
 
     .article {
         padding: 60px 0;
         width: 100%;
         background-image: url(../../../public/images/bg-movie-detail-pattern.png);
+        position: absolute;
+        top: 0;
+        color: white;
 
         h2 {
-            font-size: 30px;
+            font-size: 40px;
             text-align: center;
         }
 
@@ -22,6 +33,34 @@ $maincolor: #503396;
 
             &:focus {
                 outline: none;
+            }
+        }
+
+        .btnWrap {
+            width: 1100px;
+            margin: auto;
+            padding-bottom: 20px;
+
+            button {
+                cursor: pointer;
+                background: none;
+                height: 40px;
+                width: 120px;
+                font-size: 16px;
+                line-height: 40px;
+                border: 1px solid white;
+                box-sizing: border-box;
+                background: $maincolor;
+                color: white;
+
+                &:hover {
+                    background: black;
+                    color: white;
+                }
+            }
+
+            h3 {
+                margin-top: 10px;
             }
         }
 
@@ -94,7 +133,6 @@ $maincolor: #503396;
                             margin-bottom: 22px;
                         }
                     }
-
                 }
 
                 .BoxOffice-per_date {
@@ -105,7 +143,6 @@ $maincolor: #503396;
                     strong {
                         font-weight: 600;
                     }
-
                 }
 
                 .like {
@@ -118,10 +155,12 @@ $maincolor: #503396;
                         background: none;
                         height: 40px;
                         width: 120px;
-                        font-size: 18px;
+                        font-size: 16px;
                         line-height: 40px;
-                        border: 2px solid $maincolor;
+                        border: 1px solid white;
                         box-sizing: border-box;
+                        background: #000;
+                        color: white;
 
                         &:nth-child(2) {
                             background: $maincolor;
