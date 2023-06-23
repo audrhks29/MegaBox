@@ -3,11 +3,13 @@ import { useRef } from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
+import { MdClose, MdDateRange } from 'react-icons/md';
+import { BsPeopleFill } from 'react-icons/bs';
+
 const MainArticle = () => {
     const [movieData, setMovieData] = useState([])
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
-    const [text, setText] = useState('')
     const [search, setSearch] = useState('')
     const [filteredMovieData, setFilteredMovieData] = useState([])
     const bgRef = useRef(null);
@@ -82,9 +84,7 @@ const MainArticle = () => {
     }
     const popUpOpen = (index) => {
         setIsOpen(true)
-        console.log(isOpen);
         setSelectedMovieIndex(index)
-        console.log(selectedMovieIndex);
     }
     return (
         <>
@@ -135,20 +135,12 @@ const MainArticle = () => {
                 {
                     isOpen && <div className='popUp'>
                         <div className="popUpInner">
-                            <div className='popUpbg' style={{
-                                background: `url(${filteredMovieData[selectedMovieIndex].imageURL})`,
-                                width: 1000,
-                                height: 742,
-                                filter: 'blur(10px)',
-                                backgroundSize: 'cover',
-                                borderRadius: 50
-                            }}></div>
+                            <div className='popUpbg'></div>
                             <div className='popUpContent'>
                                 <div className='popUpLeft'>
                                     <div className='popUpLeft_top'>
                                         <h3>{filteredMovieData[selectedMovieIndex].movieNm}</h3>
                                         <strong>{filteredMovieData[selectedMovieIndex].infoTitle}</strong>
-                                        {/* <span>{filteredMovieData[selectedMovieIndex].info}</span> */}
                                         {
                                             filteredMovieData[selectedMovieIndex].info && filteredMovieData[selectedMovieIndex].info.split('\n').map((splitItem, index) => {
                                                 return <span key={index}>{splitItem}</span>
@@ -156,16 +148,21 @@ const MainArticle = () => {
                                         }
                                     </div>
                                     <div className='popUpLeft_bottom'>
-                                        <span>개봉일{filteredMovieData[selectedMovieIndex].openDt}</span>
-                                        <span>누적관객수{filteredMovieData[selectedMovieIndex].audiAcc}</span>
+                                        <span><strong><i><MdDateRange /></i>개봉일</strong>{filteredMovieData[selectedMovieIndex].openDt}</span>
+                                        <span><strong><i><BsPeopleFill /></i>누적관객수</strong>{filteredMovieData[selectedMovieIndex].audiAcc.toLocaleString('ko-KR')}명</span>
                                     </div>
                                 </div>
                                 <div className='popUpRight'>
                                     <img src={filteredMovieData[selectedMovieIndex].imageURL} style={{ width: 245, height: 350 }} alt="" />
+                                    <button><span>예매하기</span></button>
                                 </div>
                             </div>
                         </div>
+                        <div className='btnCloseWrap'>
+                            <i onClick={() => setIsOpen(false)}> <MdClose /></i>
+                        </div>
                     </div>
+
                 }
             </div >
         </>

@@ -149,24 +149,38 @@
 .wrap .popUp {
   width: 1000px;
   color: black;
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .wrap .popUp .popUpInner {
   position: relative;
+}
+.wrap .popUp .popUpInner .popUpbg {
+  background: url("../../../public/images/img-theater-mx-view01.png");
+  width: 1000px;
+  height: 752px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50px;
+  filter: blur(3px);
 }
 .wrap .popUp .popUpInner .popUpContent {
   position: absolute;
   top: 0;
   display: flex;
   padding: 70px;
-  height: 600px;
+  width: 1000px;
+  height: 752px;
+  box-sizing: border-box;
   justify-content: space-between;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.7);
   border-radius: 50px;
 }
 .wrap .popUp .popUpInner .popUpContent .popUpLeft {
   display: flex;
   flex-direction: column;
-  width: 70%;
   justify-content: space-between;
 }
 .wrap .popUp .popUpInner .popUpContent .popUpLeft .popUpLeft_top {
@@ -176,18 +190,59 @@
 .wrap .popUp .popUpInner .popUpContent .popUpLeft .popUpLeft_top h3 {
   font-size: 40px;
   font-weight: 600;
+  margin-bottom: 20px;
 }
 .wrap .popUp .popUpInner .popUpContent .popUpLeft .popUpLeft_top strong {
   font-size: 20px;
   font-weight: 600;
+  display: block;
+  margin-bottom: 20px;
 }
 .wrap .popUp .popUpInner .popUpContent .popUpLeft .popUpLeft_top span {
   font-size: 16px;
   display: block;
   word-wrap: normal;
 }
+.wrap .popUp .popUpInner .popUpContent .popUpLeft .popUpLeft_bottom {
+  display: flex;
+  font-size: 18px;
+  box-sizing: border-box;
+  text-align: center;
+}
 .wrap .popUp .popUpInner .popUpContent .popUpLeft .popUpLeft_bottom span {
   display: flex;
   flex-direction: column;
+  margin-right: 40px;
+}
+.wrap .popUp .popUpInner .popUpContent .popUpLeft .popUpLeft_bottom span strong {
+  font-weight: 600;
+}
+.wrap .popUp .popUpInner .popUpContent .popUpLeft .popUpLeft_bottom span strong i {
+  margin-right: 10px;
+}
+.wrap .popUp .popUpInner .popUpContent .popUpRight {
+  height: auto;
+}
+.wrap .popUp .popUpInner .popUpContent .popUpRight button {
+  cursor: pointer;
+  background: none;
+  height: 40px;
+  width: 245px;
+  font-size: 16px;
+  line-height: 40px;
+  border: none;
+  box-sizing: border-box;
+  background: #503396;
+  color: white;
+}
+.wrap .popUp .popUpInner .popUpContent .popUpRight button:hover {
+  background: black;
+  color: white;
+}
+.wrap .popUp .btnCloseWrap {
+  position: absolute;
+  font-size: 30px;
+  top: 20px;
+  right: 20px;
 }
 /*# sourceMappingURL=style.css.map */

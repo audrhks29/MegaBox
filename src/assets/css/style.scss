@@ -177,31 +177,40 @@ $maincolor: #503396;
     .popUp {
         width: 1000px;
         color: black;
-
-
-
+        position: fixed;
+        top: 10%;
+        left: 50%;
+        transform: translateX(-50%);
 
         .popUpInner {
             position: relative;
 
-            .popUpbg {}
+            .popUpbg {
+                background: url('../../../public/images/img-theater-mx-view01.png');
+                width: 1000px;
+                height: 752px;
+                background-size: cover;
+                background-position: center;
+                border-radius: 50px;
+                filter: blur(3px)
+            }
 
             .popUpContent {
                 position: absolute;
                 top: 0;
                 display: flex;
                 padding: 70px;
-                height: 600px;
+                width: 1000px;
+                height: 752px;
+                box-sizing: border-box;
                 justify-content: space-between;
-                background: rgba(255, 255, 255, 0.5);
+                background: rgba(255, 255, 255, 0.7);
                 border-radius: 50px;
 
                 .popUpLeft {
                     display: flex;
                     flex-direction: column;
-                    width: 70%;
                     justify-content: space-between;
-
 
                     .popUpLeft_top {
                         word-break: keep-all;
@@ -210,11 +219,14 @@ $maincolor: #503396;
                         h3 {
                             font-size: 40px;
                             font-weight: 600;
+                            margin-bottom: 20px;
                         }
 
                         strong {
                             font-size: 20px;
                             font-weight: 600;
+                            display: block;
+                            margin-bottom: 20px;
                         }
 
                         span {
@@ -225,16 +237,56 @@ $maincolor: #503396;
                     }
 
                     .popUpLeft_bottom {
+                        display: flex;
+                        font-size: 18px;
+                        box-sizing: border-box;
+                        text-align: center;
 
                         span {
                             display: flex;
                             flex-direction: column;
+                            margin-right: 40px;
+
+                            strong {
+                                font-weight: 600;
+
+                                i {
+                                    margin-right: 10px;
+                                }
+                            }
                         }
                     }
                 }
 
-                .popUpRight {}
+                .popUpRight {
+                    height: auto;
+
+                    button {
+                        cursor: pointer;
+                        background: none;
+                        height: 40px;
+                        width: 245px;
+                        font-size: 16px;
+                        line-height: 40px;
+                        border: none;
+                        box-sizing: border-box;
+                        background: $maincolor;
+                        color: white;
+
+                        &:hover {
+                            background: black;
+                            color: white;
+                        }
+                    }
+                }
             }
+        }
+
+        .btnCloseWrap {
+            position: absolute;
+            font-size: 30px;
+            top: 20px;
+            right: 20px;
         }
 
     }
