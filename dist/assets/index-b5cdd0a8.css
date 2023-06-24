@@ -6,7 +6,7 @@
 }
 
 .wrap .bg {
-    background-image: url(../images/b05fec37909f3c46d8ada73ba1d2bc2f8868e869.jpg);
+    background-image: url(./b05fec37909f3c46d8ada73ba1d2bc2f8868e869-ab0561e5.jpg);
     filter: blur(15px);
     -webkit-filter: blur(15px);
     transform: scale(1.02)
@@ -188,7 +188,7 @@
 }
 
 .wrap .popUp .popUpInner .popUpbg {
-    background: url(../images/img-theater-mx-view01.png);
+    background: url(./img-theater-mx-view01-ce85512e.png);
     width: 1000px;
     height: 752px;
     background-size: cover;
@@ -287,7 +287,8 @@
     position: absolute;
     font-size: 30px;
     top: 20px;
-    right: 20px
+    right: 20px;
+    cursor: pointer
 }
 
 html,
