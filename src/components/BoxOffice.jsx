@@ -4,11 +4,11 @@ import BoxOfficeImg from './BoxOfficeImg';
 import BoxOfficeInfo from './BoxOfficeInfo';
 import BoxOfficePerDate from './BoxOfficePerDate';
 import Like from './like';
-const BoxOffice = ({ filteredMovieData, popUpOpen, handleLikeToggle, numFormatter }) => {
+const BoxOffice = ({ filteredItems, popUpOpen, handleLikeToggle, numFormatter }) => {
     return (
         <div className="BoxOffice" >
             {
-                filteredMovieData.map((item, index) => {
+                filteredItems.map((item, index) => {
                     return (
                         <div key={index} className="BoxOffice-item">
                             <BoxOfficeImg item={item} />

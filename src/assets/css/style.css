@@ -15,6 +15,7 @@
   position: absolute;
   top: 0;
   color: white;
+  box-sizing: border-box;
 }
 .wrap .article h2 {
   font-size: 40px;
@@ -145,6 +146,32 @@
   background: #503396;
   color: white;
   border: none;
+}
+.wrap .article .pagingList {
+  display: flex;
+  justify-content: center;
+}
+.wrap .article .pagingList .pagingOn {
+  background-color: rgba(80, 51, 150, 0.8);
+  color: white;
+}
+.wrap .article .pagingList p {
+  border: 1px solid #503396;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 18px;
+  color: black;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.wrap .article .pagingList p:first-child, .wrap .article .pagingList p:last-child {
+  width: 50px;
+}
+.wrap .article .pagingList p:hover {
+  background-color: rgba(80, 51, 150, 0.8);
+  color: white;
 }
 .wrap .popUp {
   width: 1000px;

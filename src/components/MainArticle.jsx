@@ -25,10 +25,10 @@ const MainArticle = () => {
         }
     }, [filteredMovieData]);
     const bgStyle = {
-        height: articleHeight
+        height: articleHeight - 30
     };
     useEffect(() => {
-        const url = `https://gist.githubusercontent.com/audrhks29/8d111972680ab3319c173096829c7504/raw/b7fb9dcbe3ddb9754bba0980707253c809180823/movie.json`
+        const url = `https://gist.githubusercontent.com/audrhks29/4d151f01eb80528030a419ef7db92693/raw/a1ae6d550a05a2fd20fecf1bdf7e3e477bfe63dd/movie.json`
         axios.get(url)
             .then(res => {
                 setMovieData(res.data)
@@ -81,10 +81,36 @@ const MainArticle = () => {
         setSelectedMovieIndex(index)
         console.log(isOpen);
     }
+    // 페이지당 갯수
+    const itemPerPage = 8
+    // 현재 페이지
+    const [currentPage, setCurrentPage] = useState(1);
+    // 현재 페이지에 맞게 항목 목록 필터링
+    // filteredItems = 페이지당 나오는 아이템 필터링한 데이터목록
+    const filteredItems = filteredMovieData.slice((currentPage - 1) * itemPerPage, currentPage * itemPerPage);
+    const lastPage = Math.round(filteredMovieData.length / itemPerPage)
+    // 이전 페이지로 이동
+    const goToPreviousPage = () => {
+        if (currentPage === 1) return;
+        setCurrentPage((prevPage) => prevPage - 1);
+    };
+    // 다음 페이지로 이동
+    const goToNextPage = () => {
+        if (currentPage === lastPage) return;
+        setCurrentPage((nextPage) => nextPage + 1);
+    };
+    // 클릭한 페이지로 이동
+    const goToClickPage = (page) => {
+        setCurrentPage(page);
+    }
+    // 페이지 갯수 생성
+    const totalPage = Array.from({ length: lastPage }, (_, index) => index + 1);
+    console.log(totalPage);
     return (
         <>
             <div className="bg" ref={bgRef} style={{ ...bgStyle, width: "100%" }}></div>
-            <Article handleLikeToggle={handleLikeToggle} onChange={onChange} showAllMovie={showAllMovie} filmOnScreen={filmOnScreen} endOnScreen={endOnScreen} numFormatter={numFormatter} popUpOpen={popUpOpen} articleRef={articleRef} search={search} filteredMovieData={filteredMovieData} isOpen={isOpen} selectedMovieIndex={selectedMovieIndex} setIsOpen={setIsOpen} />
+            <Article handleLikeToggle={handleLikeToggle} onChange={onChange} showAllMovie={showAllMovie} filmOnScreen={filmOnScreen} endOnScreen={endOnScreen} numFormatter={numFormatter} popUpOpen={popUpOpen} articleRef={articleRef} search={search} filteredMovieData={filteredMovieData} isOpen={isOpen} selectedMovieIndex={selectedMovieIndex} setIsOpen={setIsOpen} filteredItems={filteredItems} goToPreviousPage={goToPreviousPage} totalPage={totalPage} goToClickPage={goToClickPage} goToNextPage={goToNextPage} currentPage={currentPage} />
+
         </>
     );
 };

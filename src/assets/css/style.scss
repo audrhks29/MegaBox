@@ -18,6 +18,8 @@ $maincolor: #503396;
         position: absolute;
         top: 0;
         color: white;
+        box-sizing: border-box;
+
 
         h2 {
             font-size: 40px;
@@ -171,6 +173,38 @@ $maincolor: #503396;
                 }
             }
 
+        }
+
+        .pagingList {
+            display: flex;
+            justify-content: center;
+
+            .pagingOn {
+                background-color: rgba($maincolor, 0.8);
+                color: white;
+            }
+
+            p {
+                border: 1px solid $maincolor;
+                width: 40px;
+                height: 40px;
+                line-height: 40px;
+                text-align: center;
+                font-size: 18px;
+                color: black;
+                cursor: pointer;
+                background-color: rgba(255, 255, 255, 0.8);
+
+                &:first-child,
+                &:last-child {
+                    width: 50px;
+                }
+
+                &:hover {
+                    background-color: rgba($maincolor, 0.8);
+                    color: white;
+                }
+            }
         }
     }
 

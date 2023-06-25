@@ -1,11 +1,11 @@
 
 import PopUpLeftBottom from './PopUpLeftBottom';
 import PopUpLeftTop from './PopUpLeftTop';
-const PopUpLeft = ({ filteredMovieData, selectedMovieIndex }) => {
+const PopUpLeft = ({ filteredItems, selectedMovieIndex }) => {
     return (
         <div className='popUpLeft'>
-            <PopUpLeftTop filteredMovieData={filteredMovieData} selectedMovieIndex={selectedMovieIndex} />
-            <PopUpLeftBottom filteredMovieData={filteredMovieData} selectedMovieIndex={selectedMovieIndex} />
+            <PopUpLeftTop filteredItems={filteredItems} selectedMovieIndex={selectedMovieIndex} />
+            <PopUpLeftBottom filteredItems={filteredItems} selectedMovieIndex={selectedMovieIndex} />
         </div>
     );
 };
