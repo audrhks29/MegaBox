@@ -1,14 +1,17 @@
-
 import BtnCloseWrap from './BtnCloseWrap';
-import PopUpContent from './PopUpContent';
-const PopUp = ({ filteredItems, selectedMovieIndex, setIsOpen }) => {
+import PopUpLeft from './PopUpLeft';
+import PopUpRight from './PopUpRight';
+const PopUp = ({ filteredItems }) => {
     return (
         <div className='popUp'>
             <div className="popUpInner">
                 <div className='popUpbg'></div>
-                <PopUpContent filteredItems={filteredItems} selectedMovieIndex={selectedMovieIndex} />
+                <div className='popUpContent'>
+                    <PopUpLeft filteredItems={filteredItems} />
+                    <PopUpRight filteredItems={filteredItems} />
+                </div>
             </div>
-            <BtnCloseWrap setIsOpen={setIsOpen} />
+            <BtnCloseWrap />
         </div>
     );
 };

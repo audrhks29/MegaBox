@@ -1,8 +1,14 @@
-import { MdClose, } from 'react-icons/md';
-const BtnCloseWrap = ({ setIsOpen }) => {
+import { MdClose } from 'react-icons/md';
+import { useDispatch } from 'react-redux';
+import { isPopupClose } from '../store/modules/stateSlice';
+const BtnCloseWrap = () => {
+    const dispatch = useDispatch()
+    const handlePopup = () => {
+        dispatch(isPopupClose())
+    }
     return (
         <div className='btnCloseWrap'>
-            <i onClick={() => setIsOpen(false)}> <MdClose /></i>
+            <i onClick={handlePopup}> <MdClose /></i>
         </div>
     );
 };
