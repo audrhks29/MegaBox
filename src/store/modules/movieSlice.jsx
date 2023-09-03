@@ -2,7 +2,8 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
 const initialState = {
     movieData: [],
-    loading: true
+    loading: true,
+    filteredData: []
 }
 export const getMovieData = createAsyncThunk(
     'movie/getMovieData',
@@ -12,28 +13,39 @@ export const getMovieData = createAsyncThunk(
     }
 )
 export const movieSlice = createSlice({
-    name: 'movies',
+    name: 'movie',
     initialState: initialState,
     reducers: {
-
+        showAllMovie(state, action) {
+            state.filteredData = state.movieData;
+        },
+        showFilmOnScreen(state, action) {
+            state.filteredData = action.payload;
+        },
+        showEndOnScreen(state, action) {
+            state.filteredData = action.payload;
+        },
+        showSearchedResults(state, action) {
+            state.filteredData = action.payload;
+        }
     },
     extraReducers: (builder) => {
         builder
             .addCase(getMovieData.pending, (state, action) => {
-                state.state = '로딩'
+                // state.state = '로딩'
                 state.loading = true
             })
             .addCase(getMovieData.fulfilled, (state, action) => {
-                state.state = "성공"
+                // state.state = "성공"
                 state.loading = false
                 state.movieData = action.payload
             })
             .addCase(getMovieData.rejected, (state, action) => {
-                state.state = "rejected"
+                // state.state = "rejected"
                 state.loading = true
             })
     }
 })
 
-export const { } = movieSlice.actions
+export const { showAllMovie, showFilmOnScreen, showEndOnScreen, showSearchedResults } = movieSlice.actions
 export default movieSlice.reducer

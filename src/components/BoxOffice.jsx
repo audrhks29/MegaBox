@@ -4,7 +4,7 @@ import { getMovieData } from '../store/modules/movieSlice';
 import { useEffect } from 'react';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import { isPopupOpen } from '../store/modules/stateSlice';
-const BoxOffice = ({ filteredItems, handleLikeToggle, numFormatter }) => {
+const BoxOffice = ({ handleLikeToggle, numFormatter }) => {
     const { movieData, loading } = useSelector(state => state.movieR);
     const dispatch = useDispatch()
     useEffect(() => {
@@ -16,7 +16,7 @@ const BoxOffice = ({ filteredItems, handleLikeToggle, numFormatter }) => {
     return (
         <div className="BoxOffice" >
             {
-                filteredItems.map((item, index) => {
+                movieData.map((item, index) => {
                     return (
                         <div key={index} className="BoxOffice-item">
                             <div className="BoxOffice-img">
