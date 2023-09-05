@@ -1,6 +1,6 @@
 
 import { useDispatch, useSelector } from 'react-redux';
-import { getMovieData, showAllMovie } from '../store/modules/movieSlice';
+import { getMovieData, toggleLike } from '../store/modules/movieSlice';
 import { useEffect } from 'react';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import { isPopupOpen } from '../store/modules/stateSlice';
@@ -13,6 +13,9 @@ const BoxOffice = () => {
     const handlePopup = (index) => {
         dispatch(isPopupOpen(index))
     }
+    const handleLikeToggle = (index) => {
+        dispatch(toggleLike({ index }));
+    };
     const numFormatter = (value) => {
         if (value > 999 && value < 1000000) {
             return (value / 1000).toFixed(1) + 'K';

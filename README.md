@@ -1,41 +1,33 @@
-# MegaBox
-## 코드수정
-### onChange함수
-1. 수정 전
-```js
-const onChange = (e) => {
-    setSearch(e.target.value)
-    setFilteredMovieData(movieData.filter(item => item.movieNm.includes(search)))
-}
-// 중략
-<input type="text" value={search} onChange={onChange} placeholder='검색어를 입력하세요' />
-```
-<pre>문제 : 검색어 입력시 제대로 인식 불가능.</pre>    
+# [React] 20230705 도서등록 홈페이지
+## 1. 사용기술
+### 사용된 기술
+<img src="https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white"> <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black"> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black"> <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=CSS3&logoColor=white"> <img src="https://img.shields.io/badge/Sass-CC6699?style=flat-square&logo=Sass&logoColor=white"> <img src="https://img.shields.io/badge/Redux-764ABC?style=flat-square&logo=Redux&logoColor=white"> <img src="https://img.shields.io/badge/Axios-5A29E4?style=flat-square&logo=Axios&logoColor=white">
 
-<pre>예 : '범죄도시' 영화 검색   
-  
-'범죄' 검색 → 결과없음
-'범죄ㄷ' 검색 → '범죄도시3' 해당 값 출력</pre> 
-
-2. 원인
-<pre>1. search 상태가 업데이트되기 전에 filterMovieData를 설정하고 있기 때문에 정확한 필터링이 이루어지지 않음.</pre>
-
-3. 해결방안
-<pre>1. setSearch를 먼저 호출하고, 그 다음에 setFilteredMovieData를 호출
-2. setFilteredMovieData에 대한 호출 시에는 search 대신 현재 입력된 값(inputValue)을 사용</pre>
-
-4. 수정 후
-```js
-const onChange = (e) => {
-    const inputValue = e.target.value;
-    setSearch(inputValue);
-    setFilteredMovieData(movieData.filter(item => item.movieNm.includes(inputValue)));
-};
-// 중략
-<input type="text" value={search} onChange={onChange} placeholder='검색어를 입력하세요' />
-```
-
-
-
-
-
+### v1.1.0
+   1. <img src="https://img.shields.io/badge/Axios-5A29E4?style=flat-square&logo=Axios&logoColor=white"> await axios.get 사용하여 책 데이터 불러오기
+[영화 데이터 주소](https://gist.githubusercontent.com/audrhks29/4d151f01eb80528030a419ef7db92693/raw/55bdbba28bc05ff0feed602a00d458865542d892/movie.json)
+2. <img src="https://img.shields.io/badge/Redux-764ABC?style=flat-square&logo=Redux&logoColor=white"> 사용
+### v1.0.0
+<img src="https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white"> <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black"> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black"><img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=CSS3&logoColor=white"> <img src="https://img.shields.io/badge/Sass-CC6699?style=flat-square&logo=Sass&logoColor=white">
+## 2. Version Update
+### v1.1.0
+   1. <img src="https://img.shields.io/badge/Axios-5A29E4?style=flat-square&logo=Axios&logoColor=white"> 사용
+2. <img src="https://img.shields.io/badge/Redux-764ABC?style=flat-square&logo=Redux&logoColor=white"> 사용
+3. 데이터 수정
+4. component 간소화
+### v1.0.4
+ 1. 페이징 기능 추가
+ 2. 데이터 추가 및 수정
+### v1.0.3
+   1. components 작성
+### v1.0.2
+   1. like 버튼 기능 수정
+   2. 배경화면 랜더링 수정
+   3. 팝업 기능 추가
+### v1.0.1
+   1. 검색기능 수정
+   2. like 버튼 기능 추가
+   3. 검색창 밑, 상영중 영화 filter 기능 추가
+   4. 배경화면 삽입
+### v1.0.0
+   1. 메가박스 박스오피스

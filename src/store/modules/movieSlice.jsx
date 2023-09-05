@@ -31,8 +31,13 @@ export const movieSlice = createSlice({
         },
         setPagingData(state, action) {
             state.pagingData = action.payload;
-            console.log(action.payload);
-        }
+        },
+        toggleLike: (state, action) => {
+            const { index } = action.payload;
+            const movie = state.pagingData[index];
+            movie.isLike = !movie.isLike;
+            movie.audiCnt = movie.isLike ? movie.audiCnt + 1 : movie.audiCnt - 1;
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -49,5 +54,5 @@ export const movieSlice = createSlice({
     }
 })
 
-export const { showAllMovie, showFilmOnScreen, showEndOnScreen, showSearchedResults, setPagingData } = movieSlice.actions
+export const { showAllMovie, showFilmOnScreen, showEndOnScreen, showSearchedResults, setPagingData, toggleLike } = movieSlice.actions
 export default movieSlice.reducer
