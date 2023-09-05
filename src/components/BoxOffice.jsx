@@ -1,11 +1,11 @@
 
 import { useDispatch, useSelector } from 'react-redux';
-import { getMovieData } from '../store/modules/movieSlice';
+import { getMovieData, showAllMovie } from '../store/modules/movieSlice';
 import { useEffect } from 'react';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import { isPopupOpen } from '../store/modules/stateSlice';
-const BoxOffice = ({ handleLikeToggle, numFormatter }) => {
-    const { movieData, loading } = useSelector(state => state.movieR);
+const BoxOffice = () => {
+    const { pagingData, movieData, loading } = useSelector(state => state.movieR);
     const dispatch = useDispatch()
     useEffect(() => {
         if (loading) dispatch(getMovieData())
@@ -13,10 +13,19 @@ const BoxOffice = ({ handleLikeToggle, numFormatter }) => {
     const handlePopup = (index) => {
         dispatch(isPopupOpen(index))
     }
+    const numFormatter = (value) => {
+        if (value > 999 && value < 1000000) {
+            return (value / 1000).toFixed(1) + 'K';
+        } else if (value > 1000000) {
+            return (value / 1000000).toFixed(1) + 'M';
+        } else if (value < 900) {
+            return value;
+        }
+    }
     return (
         <div className="BoxOffice" >
             {
-                movieData.map((item, index) => {
+                pagingData.map((item, index) => {
                     return (
                         <div key={index} className="BoxOffice-item">
                             <div className="BoxOffice-img">

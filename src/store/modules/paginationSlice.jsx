@@ -4,7 +4,7 @@ const initialState = {
     itemPerPage: 8,
     currentPage: 1,
     lastPage: 0,
-    totalPage: 0,
+    totalPage: [],
 };
 
 export const paginationSlice = createSlice({
@@ -16,14 +16,14 @@ export const paginationSlice = createSlice({
             state.currentPage = state.currentPage - 1;
         },
         goToNextPage(state, action) {
-            if (state.currentPage === state.lastPage) return;
+            if (state.currentPage >= state.lastPage) return;
             state.currentPage = state.currentPage + 1;
         },
         goToPage(state, action) {
             state.currentPage = action.payload;
+            console.log(action.payload);
         },
         setInitialState: (state, action) => {
-            // 초기 상태를 설정합니다.
             return { ...state, ...action.payload };
         },
     },

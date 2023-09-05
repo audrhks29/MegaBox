@@ -1,14 +1,15 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
 const initialState = {
-    movieData: [],
+    movieData: [], //영화 전체 데이터
     loading: true,
-    filteredData: []
+    filteredData: [], // 전체, 상영중, 상영종료
+    pagingData: [] // 실제로 보여줄 데이터 (itemPerPage만큼 잘라서 보여줌)
 }
 export const getMovieData = createAsyncThunk(
     'movie/getMovieData',
     async () => {
-        const res = await axios.get('https://gist.githubusercontent.com/audrhks29/4d151f01eb80528030a419ef7db92693/raw/a1ae6d550a05a2fd20fecf1bdf7e3e477bfe63dd/movie.json')
+        const res = await axios.get('https://gist.githubusercontent.com/audrhks29/4d151f01eb80528030a419ef7db92693/raw/55bdbba28bc05ff0feed602a00d458865542d892/movie.json')
         return res.data
     }
 )
@@ -17,35 +18,36 @@ export const movieSlice = createSlice({
     initialState: initialState,
     reducers: {
         showAllMovie(state, action) {
-            state.filteredData = state.movieData;
+            state.filteredData = [...action.payload];
         },
         showFilmOnScreen(state, action) {
-            state.filteredData = action.payload;
+            state.filteredData = [...action.payload];
         },
         showEndOnScreen(state, action) {
-            state.filteredData = action.payload;
+            state.filteredData = [...action.payload];
         },
         showSearchedResults(state, action) {
             state.filteredData = action.payload;
+        },
+        setPagingData(state, action) {
+            state.pagingData = action.payload;
+            console.log(action.payload);
         }
     },
     extraReducers: (builder) => {
         builder
             .addCase(getMovieData.pending, (state, action) => {
-                // state.state = '로딩'
                 state.loading = true
             })
             .addCase(getMovieData.fulfilled, (state, action) => {
-                // state.state = "성공"
                 state.loading = false
                 state.movieData = action.payload
             })
             .addCase(getMovieData.rejected, (state, action) => {
-                // state.state = "rejected"
                 state.loading = true
             })
     }
 })
 
-export const { showAllMovie, showFilmOnScreen, showEndOnScreen, showSearchedResults } = movieSlice.actions
+export const { showAllMovie, showFilmOnScreen, showEndOnScreen, showSearchedResults, setPagingData } = movieSlice.actions
 export default movieSlice.reducer

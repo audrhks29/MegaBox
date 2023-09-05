@@ -1,21 +1,29 @@
 import { useDispatch, useSelector } from "react-redux";
-import { setInitialState } from '../store/modules/paginationSlice';
-import { useEffect } from "react";
+import { goToNextPage, goToPage, goToPreviousPage, setInitialState } from '../store/modules/paginationSlice';
+import { useEffect, useState } from "react";
+import { setPagingData } from "../store/modules/movieSlice";
 const PagingList = () => {
+    const { currentPage, itemPerPage } = useSelector(state => state.paginationR);
     const dispatch = useDispatch();
-    const movieData = useSelector((state) => state.movieR);
-    const itemPerPage = 8;
-    const lastPage = Math.round(movieData.length / itemPerPage);
-    const totalPage = Array.from({ length: lastPage }, (_, index) => index + 1);
+    const { movieData, filteredData } = useSelector(state => state.movieR);
+    const [lastPage, setLastPage] = useState()
+    const [totalPage, setTotalPage] = useState([])
+    useEffect(() => {
+        setLastPage(Math.ceil(filteredData.length / itemPerPage));
+        setTotalPage(Array.from({ length: lastPage }, (_, index) => index + 1));
+    }, [movieData, currentPage, itemPerPage, lastPage, filteredData]);
+    useEffect(() => {
+        const filter = filteredData.slice((currentPage - 1) * itemPerPage, itemPerPage * currentPage);
+        dispatch(setPagingData(filter))
+    }, [movieData, currentPage, itemPerPage, lastPage, totalPage]);
     useEffect(() => {
         const initialState = {
-            itemPerPage,
-            currentPage: 1,
+            currentPage,
             lastPage,
             totalPage,
         };
         dispatch(setInitialState(initialState));
-    }, []);
+    }, [movieData]);
     const handleGoToPreviousPage = () => {
         dispatch(goToPreviousPage())
     };
@@ -31,7 +39,7 @@ const PagingList = () => {
             {
                 totalPage.map((item, index) => {
                     return (
-                        <p className={currentPage - 1 === index ? "pagingOn" : ""} key={index} onClick={() => goToClickPage(index + 1)}> {item}</p>
+                        <p className={currentPage - 1 === index ? "pagingOn" : ""} key={index} onClick={() => handleGoToPage(index + 1)}> {item}</p>
                     )
                 })
             }
