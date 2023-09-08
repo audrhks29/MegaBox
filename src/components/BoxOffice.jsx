@@ -4,6 +4,7 @@ import { getMovieData, toggleLike } from '../store/modules/movieSlice';
 import { useEffect } from 'react';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import { isPopupOpen } from '../store/modules/stateSlice';
+import { BoxOfficeContainer, BoxOfficeItem } from '../styled/BoxOfiiceStyle';
 const BoxOffice = () => {
     const { pagingData, movieData, loading } = useSelector(state => state.movieR);
     const dispatch = useDispatch()
@@ -26,11 +27,11 @@ const BoxOffice = () => {
         }
     }
     return (
-        <div className="BoxOffice" >
+        <BoxOfficeContainer>
             {
                 pagingData.map((item, index) => {
                     return (
-                        <div key={index} className="BoxOffice-item">
+                        <BoxOfficeItem key={index}>
                             <div className="BoxOffice-img">
                                 <img src={item.imageURL} style={{ width: 245, height: 350 }} alt="" />
                             </div>
@@ -65,12 +66,11 @@ const BoxOffice = () => {
                                 </button>
                                 <button><span>예매하기</span></button>
                             </div >
-                        </div>
+                        </BoxOfficeItem>
                     )
                 })
             }
-        </div>
-
+        </BoxOfficeContainer>
     );
 };
 

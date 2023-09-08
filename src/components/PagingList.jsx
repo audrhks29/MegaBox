@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { goToNextPage, goToPage, goToPreviousPage, setInitialState } from '../store/modules/paginationSlice';
 import { useEffect, useState } from "react";
 import { setPagingData } from "../store/modules/movieSlice";
+import { PagingContainer } from "../styled/PagingStyle";
 const PagingList = () => {
     const { currentPage, itemPerPage } = useSelector(state => state.paginationR);
     const dispatch = useDispatch();
@@ -34,7 +35,7 @@ const PagingList = () => {
         dispatch(goToPage(page));
     }
     return (
-        <div className="pagingList">
+        <PagingContainer>
             <p onClick={handleGoToPreviousPage}>이전</p>
             {
                 totalPage.map((item, index) => {
@@ -44,7 +45,7 @@ const PagingList = () => {
                 })
             }
             <p className="li" onClick={handleGoToNextPage}>다음</p>
-        </div >
+        </PagingContainer >
     );
 };
 

@@ -1,11 +1,17 @@
 import MainArticle from "./components/MainArticle";
-import './assets/css/style.scss'
-import './assets/css/reset.css'
+// import './assets/css/style.scss'
+// import './assets/css/reset.css'
+import GlobalStyles from "./styled/GlobalStyle";
+import { WrapContainer } from "./styled/commonStyle";
 const App = () => {
   return (
-    <div className="wrap">
-      <MainArticle />
-    </div>
+    <>
+      <GlobalStyles />
+      <WrapContainer>
+        <MainArticle />
+      </WrapContainer>
+    </>
+
   );
 };
 

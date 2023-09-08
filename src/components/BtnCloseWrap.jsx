@@ -1,15 +1,16 @@
 import { MdClose } from 'react-icons/md';
 import { useDispatch } from 'react-redux';
 import { isPopupClose } from '../store/modules/stateSlice';
+import { BtnCloseContainer } from '../styled/commonStyle';
 const BtnCloseWrap = () => {
     const dispatch = useDispatch()
     const handlePopup = () => {
         dispatch(isPopupClose())
     }
     return (
-        <div className='btnCloseWrap'>
+        <BtnCloseContainer>
             <i onClick={handlePopup}> <MdClose /></i>
-        </div>
+        </BtnCloseContainer>
     );
 };
 

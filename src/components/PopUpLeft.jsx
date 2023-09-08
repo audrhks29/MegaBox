@@ -2,11 +2,12 @@
 import { MdDateRange } from 'react-icons/md';
 import { BsPeopleFill } from 'react-icons/bs';
 import { useSelector } from 'react-redux';
+import { PopupLeftContainer } from '../styled/PopupStyle';
 const PopUpLeft = () => {
     const { pagingData } = useSelector(state => state.movieR);
     const { popupIndex } = useSelector(state => state.stateR.popupState);
     return (
-        <div className='popUpLeft'>
+        <PopupLeftContainer>
             <div className='popUpLeft_top'>
                 <h3>{pagingData[popupIndex].movieNm}</h3>
                 <strong>{pagingData[popupIndex].infoTitle}</strong>
@@ -25,7 +26,7 @@ const PopUpLeft = () => {
                     {pagingData[popupIndex].audiAcc.toLocaleString('ko-KR')}명
                 </span>
             </div>
-        </div>
+        </PopupLeftContainer>
     );
 };
 

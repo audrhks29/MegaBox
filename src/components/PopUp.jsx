@@ -1,18 +1,19 @@
+import { PopupBg, PopupContainer, PopupContent, PopupInner } from '../styled/PopupStyle';
 import BtnCloseWrap from './BtnCloseWrap';
 import PopUpLeft from './PopUpLeft';
 import PopUpRight from './PopUpRight';
 const PopUp = () => {
     return (
-        <div className='popUp'>
-            <div className="popUpInner">
-                <div className='popUpbg'></div>
-                <div className='popUpContent'>
+        <PopupContainer>
+            <PopupInner>
+                <PopupBg></PopupBg>
+                <PopupContent>
                     <PopUpLeft />
                     <PopUpRight />
-                </div>
-            </div>
+                </PopupContent>
+            </PopupInner>
             <BtnCloseWrap />
-        </div>
+        </PopupContainer>
     );
 };
 

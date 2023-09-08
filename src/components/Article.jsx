@@ -5,6 +5,7 @@ import PagingList from './PagingList';
 import { useDispatch, useSelector } from 'react-redux';
 import { onChangeKeyword } from '../store/modules/searchSlice';
 import { showSearchedResults } from '../store/modules/movieSlice';
+import { ArticleContainer } from '../styled/ArticleStyle';
 const Article = ({ articleRef }) => {
     const { state } = useSelector(state => state.stateR.popupState);
     const { movieData } = useSelector(state => state.movieR);
@@ -18,7 +19,7 @@ const Article = ({ articleRef }) => {
     };
 
     return (
-        <div className="article" ref={articleRef}>
+        <ArticleContainer ref={articleRef}>
             <h2>박스오피스</h2>
             <input
                 type="text"
@@ -32,7 +33,7 @@ const Article = ({ articleRef }) => {
                 state && <PopUp />
             }
             <PagingList />
-        </div >
+        </ArticleContainer >
     );
 };
 
