@@ -4,7 +4,7 @@ import { mainColor } from './commonStyle'
 export const ArticleContainer = styled.div`
     padding: 60px 0;
     width: 100%;
-    background-image: url(../../../public/images/bg-movie-detail-pattern.png);
+    background-image: url(../public/images/bg-movie-detail-pattern.png);
     position: absolute;
     top: 0;
     color: white;
@@ -17,8 +17,9 @@ export const ArticleContainer = styled.div`
         display: block;
         margin: 40px auto;
         border: 2px solid ${mainColor};
-        width: 500px;
-        height: 30px;
+        width: 600px;
+        height: 50px;
+        text-indent:10px;
         &:focus {
             outline: none;
         }

@@ -6,11 +6,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { onChangeKeyword } from '../store/modules/searchSlice';
 import { showSearchedResults } from '../store/modules/movieSlice';
 import { ArticleContainer } from '../styled/ArticleStyle';
-const Article = ({ articleRef }) => {
+const Article = () => {
     const { state } = useSelector(state => state.stateR.popupState);
     const { movieData } = useSelector(state => state.movieR);
     const { keywords } = useSelector(state => state.searchR);
     const dispatch = useDispatch()
+
     const onChange = (e) => {
         const inputValue = e.target.value;
         dispatch(onChangeKeyword(inputValue));
@@ -19,7 +20,7 @@ const Article = ({ articleRef }) => {
     };
 
     return (
-        <ArticleContainer ref={articleRef}>
+        <ArticleContainer>
             <h2>박스오피스</h2>
             <input
                 type="text"

@@ -9,7 +9,7 @@ const initialState = {
 export const getMovieData = createAsyncThunk(
     'movie/getMovieData',
     async () => {
-        const res = await axios.get('https://gist.githubusercontent.com/audrhks29/4d151f01eb80528030a419ef7db92693/raw/55bdbba28bc05ff0feed602a00d458865542d892/movie.json')
+        const res = await axios.get('https://gist.githubusercontent.com/audrhks29/4d151f01eb80528030a419ef7db92693/raw/31e775a6bef97529c63277c5a452dca4574aeeb7/movie.json')
         return res.data
     }
 )

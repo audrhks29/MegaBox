@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { mainColor } from './CommonStyle'
+import { mainColor } from './commonStyle'
 
 export const PopupContainer = styled.div`
     width: 1000px;
@@ -8,13 +8,14 @@ export const PopupContainer = styled.div`
     top: 10%;
     left: 50%;
     transform: translateX(-50%);
+    z-index:100;
 `
 export const PopupInner = styled.div`
     position: relative;
 `
 
 export const PopupBg = styled.div`
-    background: url('../../../public/images/img-theater-mx-view01.png');
+    background: url(../../public/images/popupBg.png);
     width: 1000px;
     height: 752px;
     background-size: cover;
@@ -41,6 +42,7 @@ export const PopupLeftContainer = styled.div`
     .popUpLeft_top {
         word-break: keep-all;
         width: 610px;
+        padding-right:10px;
         h3 {
             font-size: 40px;
             font-weight: 600;
@@ -56,6 +58,7 @@ export const PopupLeftContainer = styled.div`
             font-size: 16px;
             display: block;
             word-wrap: normal;
+            line-height:1.5;
         }
     }
     .popUpLeft_bottom {

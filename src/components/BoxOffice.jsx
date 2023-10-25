@@ -1,22 +1,26 @@
 
 import { useDispatch, useSelector } from 'react-redux';
 import { getMovieData, toggleLike } from '../store/modules/movieSlice';
-import { useEffect } from 'react';
+import { useLayoutEffect } from 'react';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import { isPopupOpen } from '../store/modules/stateSlice';
-import { BoxOfficeContainer, BoxOfficeItem } from '../styled/BoxOfiiceStyle';
+import { BoxOfficeContainer, BoxOfficeItem } from '../styled/BoxOfficeStyle';
 const BoxOffice = () => {
     const { pagingData, movieData, loading } = useSelector(state => state.movieR);
     const dispatch = useDispatch()
-    useEffect(() => {
+
+    useLayoutEffect(() => {
         if (loading) dispatch(getMovieData())
     }, [movieData]);
+
     const handlePopup = (index) => {
         dispatch(isPopupOpen(index))
     }
+
     const handleLikeToggle = (index) => {
         dispatch(toggleLike({ index }));
     };
+
     const numFormatter = (value) => {
         if (value > 999 && value < 1000000) {
             return (value / 1000).toFixed(1) + 'K';
@@ -26,6 +30,7 @@ const BoxOffice = () => {
             return value;
         }
     }
+
     return (
         <BoxOfficeContainer>
             {
@@ -36,7 +41,10 @@ const BoxOffice = () => {
                                 <img src={item.imageURL} style={{ width: 245, height: 350 }} alt="" />
                             </div>
                             <div className="BoxOffice-name">
-                                <img src={item.agelimit} alt="" />
+                                {item.agelimit === 12 && <img src="../public/images/age/12.png" alt="" />}
+                                {item.agelimit === 15 && <img src="../public/images/age/15.png" alt="" />}
+                                {item.agelimit === 18 && <img src="../public/images/age/18.png" alt="" />}
+                                {item.agelimit === 0 && <img src="../public/images/age/all.png" alt="" />}
                                 <span >{item.movieNm}</span>
                             </div>
                             <div className="BoxOffice-info" onClick={() => handlePopup(index)}>
