@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
-    keywords: null
+    keywords: ""
 }
 export const searchSlice = createSlice({
     name: 'search',

@@ -8,11 +8,12 @@ export const WrapContainer = styled.div`
 
 export const BgImageContainer = styled.div`
     background-image: url(../public/images/bg.jpg);
+    background-size: cover;
     filter: blur(15px);
     -webkit-filter: blur(15px);
     transform: scale(1.02);
     width: 100%;
-    height: ${(props) => props.scrollHeight}px;
+    height: ${(props) => props.scrollheight}px;
 `
 
 export const BtnCloseContainer = styled.div`
