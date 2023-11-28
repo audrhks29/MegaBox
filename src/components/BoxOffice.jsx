@@ -1,12 +1,17 @@
 
-import { useSelector } from 'react-redux';
-import { toggleLike } from '../store/modules/movieSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { getMovieData, toggleLike } from '../store/modules/movieSlice';
+import { useLayoutEffect } from 'react';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import { isPopupOpen } from '../store/modules/stateSlice';
 import { BoxOfficeContainer, BoxOfficeItem } from '../styled/BoxOfficeStyle';
 const BoxOffice = () => {
     const { pagingData, movieData, loading } = useSelector(state => state.movieR);
+    const dispatch = useDispatch()
 
+    useLayoutEffect(() => {
+        if (loading) dispatch(getMovieData())
+    }, [movieData]);
 
     const handlePopup = (index) => {
         dispatch(isPopupOpen(index))

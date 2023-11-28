@@ -9,6 +9,7 @@ export const ArticleContainer = styled.div`
     top: 0;
     color: white;
     box-sizing: border-box;
+    height: 1420px;
     h2 {
         font-size: 40px;
         text-align: center;

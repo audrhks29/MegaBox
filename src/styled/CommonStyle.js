@@ -8,7 +8,7 @@ export const WrapContainer = styled.div`
 
 export const BgImageContainer = styled.div`
     background-image: url(../public/images/bg.jpg);
-    height: ${(props) => props.scrollheight}px;
+    min-height: 1420px;
     background-size: cover;
     filter: blur(15px);
     -webkit-filter: blur(15px);
