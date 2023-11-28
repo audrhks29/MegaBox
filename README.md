@@ -14,7 +14,20 @@
 
 ## 2. Version Update
 ### v1.2.2
+   1. 최초 로딩시간 개선
+      1. 이미지 리사이징 및 압축을 통한 개선
+      2. 결과
+         1. 개선전
+         ![개선전](https://github.com/audrhks29/MegaBox/assets/130128690/52c9ad6b-274d-4a6c-8b77-be4197c943de)
+         
+         2. 개선후
+         ![개선후](https://github.com/audrhks29/MegaBox/assets/130128690/ace698b1-22fc-4119-b2b9-31377eb0439a)
 
+         3. 요약
+            |        | 네트워크 전송 | 리소스 |  완료  |  로드  |
+            | :----: | :-----------: | :----: | :----: | :----: |
+            | 개선전 |     20MB      | 20.1MB | 6.47초 | 6.08초 |
+            | 개선후 |     1.8MB     | 1.9MB  | 1.02초 | 1.09초 |
 ### v1.2.1
    1. <img src="https://img.shields.io/badge/styled_components-DB7093?style=flat-square&logo=styledcomponents&logoColor=white"> 일부 수정
       ```js
