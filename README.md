@@ -13,6 +13,26 @@
 <img src="https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white"> <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black"> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black"><img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=CSS3&logoColor=white"> <img src="https://img.shields.io/badge/Sass-CC6699?style=flat-square&logo=Sass&logoColor=white">
 
 ## 2. Version Update
+### v1.2.3
+   1. 영화 이미지에 onLoad속성 추가
+      ```js
+         //생략
+         const [onLoaded, setOnLoaded] = useState(false)
+         const handleOnLoad = () => {
+            setOnLoaded(true);
+         }
+         return (
+            // 중략
+            <img
+               src={item.imageURL}
+               style={{ display: onLoaded ? 'block' : "none", width: 245, height: 350 }}
+               alt=""
+               onLoad={handleOnLoad}
+            />
+            // 생략
+         )
+
+      ```
 ### v1.2.2
    1. 최초 로딩시간 개선
       1. 이미지 리사이징 및 압축을 통한 개선
