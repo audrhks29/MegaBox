@@ -13,6 +13,41 @@
 <img src="https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white"> <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black"> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black"><img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=CSS3&logoColor=white"> <img src="https://img.shields.io/badge/Sass-CC6699?style=flat-square&logo=Sass&logoColor=white">
 
 ## 2. Version Update
+### v1.2.4
+   1. 영화 이미지에 onLoad속성 수정
+      ```js
+         //생략
+         const [onLoaded, setOnLoaded] = useState([])
+         const handleOnLoad = (index) => {
+            setOnLoaded(prevOnLoaded => [...prevOnLoaded, index]);
+         }
+         return (
+            // 중략
+            <img
+               src={item.imageURL}
+               style={{
+                  display: onLoaded.includes(index) ? 'block' : "none",
+               }}
+               alt=""
+               onLoad={() => handleOnLoad(index)}
+            />
+            // 생략
+         )
+
+      ```
+      v1.2.3에서 추가한 코드처럼 사용하면 하나의 이미지만 로드되도 onLoad가 true로 바뀜
+      
+      useState의 type을 배열로 전환후 `setOnLoaded(prevOnLoaded => [...prevOnLoaded, index]);`로 index를 추가
+
+      그 후 `style={{display: onLoaded.includes(index) ? 'block' : "none",}}`로 onLoaded배열 안에 index가 포함되어 있으면 display속성을 block으로 전환
+
+   2. CLS(누적레이아웃) 개선<br>
+      1. 개선전<br>
+      ![개선전](https://github.com/audrhks29/Forment/assets/130128690/03a3b2e7-8bda-44f6-82ca-2896543941f5)
+      2. 개선후<br>
+      ![개선후](https://github.com/audrhks29/Forment/assets/130128690/d55fbb23-a4a6-4879-b460-838f6b538afc)
+
+
 ### v1.2.3
    1. 영화 이미지에 onLoad속성 추가
       ```js
