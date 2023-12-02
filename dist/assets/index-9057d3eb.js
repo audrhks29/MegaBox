@@ -110,6 +110,9 @@ Error generating stack: `+i.message+`
         &:hover .BoxOffice-info{
             display: block;
         }
+        > img {
+            width: 245px;
+        }
         .BoxOffice-info {
             display: none;
             background: rgba(0, 0, 0, 0.6);
@@ -184,7 +187,7 @@ Error generating stack: `+i.message+`
             }
         }
     }
-`,bS=()=>{const{pagingData:e}=lt(s=>s.movieR),t=ko(),[n,r]=U.useState(!1),o=s=>{t(Ow(s))},i=s=>{t(gw({index:s}))},l=s=>{if(s>999&&s<1e6)return(s/1e3).toFixed(1)+"K";if(s>1e6)return(s/1e6).toFixed(1)+"M";if(s<900)return s},u=()=>{r(!0)};return E.jsx(IS,{children:e.map((s,a)=>E.jsxs(DS,{children:[E.jsxs("div",{className:"BoxOffice-img_and_Info",children:[E.jsx("img",{src:s.imageURL,style:{display:n?"block":"none",width:245,height:350},alt:"",onLoad:u}),E.jsxs("div",{className:"BoxOffice-info",onClick:()=>o(a),children:[E.jsx("span",{children:s.infoTitle}),s.info&&s.info.split(`
+`,bS=()=>{const{pagingData:e}=lt(s=>s.movieR),t=ko(),[n,r]=U.useState([]),o=s=>{t(Ow(s))},i=s=>{t(gw({index:s}))},l=s=>{if(s>999&&s<1e6)return(s/1e3).toFixed(1)+"K";if(s>1e6)return(s/1e6).toFixed(1)+"M";if(s<900)return s},u=s=>{r(a=>[...a,s])};return E.jsx(IS,{children:e.map((s,a)=>E.jsxs(DS,{children:[E.jsxs("div",{className:"BoxOffice-img_and_Info",children:[E.jsx("img",{src:s.imageURL,style:{display:n.includes(a)?"block":"none"},alt:"",onLoad:()=>u(a)}),E.jsxs("div",{className:"BoxOffice-info",onClick:()=>o(a),children:[E.jsx("span",{children:s.infoTitle}),s.info&&s.info.split(`
 `).map((c,d)=>E.jsx("span",{children:c},d))]})]}),E.jsxs("div",{className:"BoxOffice-name",children:[s.agelimit===12&&E.jsx("img",{src:"../public/images/age/12.png",alt:""}),s.agelimit===15&&E.jsx("img",{src:"../public/images/age/15.png",alt:""}),s.agelimit===18&&E.jsx("img",{src:"../public/images/age/18.png",alt:""}),s.agelimit===0&&E.jsx("img",{src:"../public/images/age/all.png",alt:""}),E.jsx("span",{children:s.movieNm})]}),E.jsxs("div",{className:"BoxOffice-per_date",children:[E.jsxs("span",{children:[E.jsx("strong",{children:"예매율 "}),s.salesShare,"%"]}),E.jsxs("span",{children:[E.jsx("strong",{children:"개봉일 "}),s.openDt]})]}),E.jsxs("div",{className:"like",children:[E.jsx("button",{onClick:()=>i(a),children:E.jsxs("i",{children:[s.isLike?E.jsx(jw,{}):E.jsx(wm,{}),E.jsx("span",{children:l(s.audiCnt)})]})}),E.jsx("button",{children:E.jsx("span",{children:"예매하기"})})]})]},a))})},MS=ke.div`
     width: 1000px;
     color: black;

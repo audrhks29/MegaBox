@@ -13,7 +13,7 @@ import { BoxOfficeContainer, BoxOfficeItem } from '../styled/BoxOfficeStyle';
 const BoxOffice = () => {
   const { pagingData } = useSelector(state => state.movieR);
   const dispatch = useDispatch()
-  const [onLoaded, setOnLoaded] = useState(false)
+  const [onLoaded, setOnLoaded] = useState([])
 
   const handlePopup = (index) => {
     dispatch(isPopupOpen(index))
@@ -33,8 +33,8 @@ const BoxOffice = () => {
     }
   }
 
-  const handleOnLoad = () => {
-    setOnLoaded(true);
+  const handleOnLoad = (index) => {
+    setOnLoaded(prevOnLoaded => [...prevOnLoaded, index]);
   }
 
   return (
@@ -47,12 +47,10 @@ const BoxOffice = () => {
                 <img
                   src={item.imageURL}
                   style={{
-                    display: onLoaded ? 'block' : "none",
-                    width: 245,
-                    height: 350
+                    display: onLoaded.includes(index) ? 'block' : "none",
                   }}
                   alt=""
-                  onLoad={handleOnLoad}
+                  onLoad={() => handleOnLoad(index)}
                 />
                 <div
                   className="BoxOffice-info"

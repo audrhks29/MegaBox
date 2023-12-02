@@ -22,6 +22,9 @@ export const BoxOfficeItem = styled.div`
         &:hover .BoxOffice-info{
             display: block;
         }
+        > img {
+            width: 245px;
+        }
         .BoxOffice-info {
             display: none;
             background: rgba(0, 0, 0, 0.6);
