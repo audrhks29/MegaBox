@@ -15,9 +15,35 @@ export const BoxOfficeItem = styled.div`
     margin-bottom: 40px;
     width: 245px;
     position: relative;
-    &:hover .BoxOffice-info { display: block; }
-    .BoxOffice-img { width: 245px; }
     &:nth-child(4n) { margin-right: 0; }
+    .BoxOffice-img_and_Info { 
+        width: 245px; 
+        height: 350px;
+        &:hover .BoxOffice-info{
+            display: block;
+        }
+        .BoxOffice-info {
+            display: none;
+            background: rgba(0, 0, 0, 0.6);
+            position: absolute;
+            top: 0;
+            height: 142px;
+            overflow: hidden;
+            font-size: 15px;
+            padding: 20px;
+            color: white;
+            height: 350px;
+            box-sizing: border-box; 
+            span {
+                max-width: 100%;
+                text-overflow: ellipsis;
+                &:nth-child(1) {
+                    display: block;
+                    margin-bottom: 22px;
+                }
+            }
+        }
+    }
     .BoxOffice-name {
         width: 200px;
         white-space: nowrap;
@@ -36,29 +62,7 @@ export const BoxOfficeItem = styled.div`
             vertical-align: middle;
         }
     }
-    .BoxOffice-info {
-        display: none;
-        background: rgba(0, 0, 0, 0.6);
-        position: absolute;
-        top: 0;
-        height: 142px;
-        overflow: hidden;
-        font-size: 15px;
-        padding: 20px;
-        color: white;
-        height: 350px;
-        box-sizing: border-box;
-
-        span {
-            max-width: 100%;
-            text-overflow: ellipsis;
-
-            &:nth-child(1) {
-                display: block;
-                margin-bottom: 22px;
-            }
-        }
-    }
+    
     .BoxOffice-per_date {
         display: flex;
         flex-direction: row;

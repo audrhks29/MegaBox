@@ -1,9 +1,9 @@
 
-import { useLayoutEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { getMovieData, toggleLike } from '../store/modules/movieSlice';
+import { toggleLike } from '../store/modules/movieSlice';
 import { isPopupOpen } from '../store/modules/stateSlice';
 
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
@@ -11,13 +11,9 @@ import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import { BoxOfficeContainer, BoxOfficeItem } from '../styled/BoxOfficeStyle';
 
 const BoxOffice = () => {
-  const { pagingData, movieData, loading } = useSelector(state => state.movieR);
+  const { pagingData } = useSelector(state => state.movieR);
   const dispatch = useDispatch()
   const [onLoaded, setOnLoaded] = useState(false)
-
-  useLayoutEffect(() => {
-    if (loading) dispatch(getMovieData())
-  }, [movieData]);
 
   const handlePopup = (index) => {
     dispatch(isPopupOpen(index))
@@ -47,13 +43,28 @@ const BoxOffice = () => {
         pagingData.map((item, index) => {
           return (
             <BoxOfficeItem key={index}>
-              <div className="BoxOffice-img">
+              <div className="BoxOffice-img_and_Info">
                 <img
                   src={item.imageURL}
-                  style={{ display: onLoaded ? 'block' : "none", width: 245, height: 350 }}
+                  style={{
+                    display: onLoaded ? 'block' : "none",
+                    width: 245,
+                    height: 350
+                  }}
                   alt=""
                   onLoad={handleOnLoad}
                 />
+                <div
+                  className="BoxOffice-info"
+                  onClick={() => handlePopup(index)}
+                >
+                  <span>{item.infoTitle}</span>
+                  {
+                    item.info && item.info.split('\n').map((splitItem, index) => {
+                      return <span key={index}>{splitItem}</span>
+                    })
+                  }
+                </div>
               </div>
               <div className="BoxOffice-name">
                 {item.agelimit === 12 && <img src="../public/images/age/12.png" alt="" />}
@@ -61,14 +72,6 @@ const BoxOffice = () => {
                 {item.agelimit === 18 && <img src="../public/images/age/18.png" alt="" />}
                 {item.agelimit === 0 && <img src="../public/images/age/all.png" alt="" />}
                 <span >{item.movieNm}</span>
-              </div>
-              <div className="BoxOffice-info" onClick={() => handlePopup(index)}>
-                <span>{item.infoTitle}</span>
-                {
-                  item.info && item.info.split('\n').map((splitItem, index) => {
-                    return <span key={index}>{splitItem}</span>
-                  })
-                }
               </div>
               <div className='BoxOffice-per_date'>
                 <span><strong>예매율 </strong>{item.salesShare}%</span>

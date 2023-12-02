@@ -4,11 +4,13 @@ import PopUp from './PopUp';
 import PagingList from './PagingList';
 import { useDispatch, useSelector } from 'react-redux';
 import { onChangeKeyword } from '../store/modules/searchSlice';
-import { showSearchedResults } from '../store/modules/movieSlice';
+import { getMovieData, showSearchedResults } from '../store/modules/movieSlice';
 import { ArticleContainer } from '../styled/ArticleStyle';
+import BoxOfficeSkeleton from './BoxOfficeSkeleton';
+import { useEffect } from 'react';
 const Article = () => {
     const { state } = useSelector(state => state.stateR.popupState);
-    const { movieData } = useSelector(state => state.movieR);
+    const { movieData, loading } = useSelector(state => state.movieR);
     const { keywords } = useSelector(state => state.searchR);
     const dispatch = useDispatch()
 
@@ -18,6 +20,10 @@ const Article = () => {
         const searched = movieData.filter(item => item.movieNm.includes(inputValue))
         dispatch(showSearchedResults(searched));
     };
+
+    useEffect(() => {
+        dispatch(getMovieData())
+    }, []);
 
     return (
         <ArticleContainer>
@@ -29,7 +35,7 @@ const Article = () => {
                 placeholder='검색어를 입력하세요'
             />
             <BtnWrap />
-            <BoxOffice />
+            {loading ? <BoxOfficeSkeleton /> : <BoxOffice />}
             {
                 state && <PopUp />
             }
